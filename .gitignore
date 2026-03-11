@@ -215,3 +215,5 @@ __pycache__/
 .venv/
 venv/
 .skyfield/
+publish_next_version.bat
+publish_next_version_strict.bat
