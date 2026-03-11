@@ -1,0 +1,22 @@
+Audit Report v0.3.2
+Build Date: 2026-03-09 17:22:01 UTC
+
+Findings corrected from earlier files
+1. basic_engine.py passed Earth+Topos into Skyfield almanac.risings_and_settings().
+   Fixed by passing Topos only.
+2. main.py imported ConjunctionService, but v0.3.0 conjunction_service.py defined
+   NextConjunctionService instead. Fixed by standardizing on ConjunctionService.
+3. Conjunction logic existed in more than one path, which caused CLI output to show
+   a valid conjunction while MoonService reported "Conjunction unresolved".
+   Fixed by passing the resolved conjunction into MoonService.
+4. Output formatting and model field names were normalized.
+5. Package was rebuilt as a clean full replacement so file-version drift does not
+   produce patch mismatch errors.
+
+Validation performed
+- All Python files compiled successfully with py_compile.
+- Cross-file import consistency was checked inside this package.
+
+Not fully validated here
+- Live runtime against a fresh de421 download was not guaranteed in this environment.
+  The package is designed to work with Skyfield once dependencies are installed.

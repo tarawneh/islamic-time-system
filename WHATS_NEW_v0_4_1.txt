@@ -1,0 +1,26 @@
+WHATS_NEW_v0_4_1
+
+Version: 0.4.1
+Build Date: 2026-03-09 19:33:05 UTC
+
+Modified Files
+- main.py
+- modules/moon_visibility/odeh.py
+- modules/moon_visibility/service.py
+
+What Changed
+1. Fixed the display of Estimated Hijri Date so it now prints as:
+   day month_name year (source)
+
+2. Replaced the previous incorrect Odeh approximation.
+3. Added explicit scientific output fields:
+   - ARCV
+   - W
+   - V Value
+   - Zone
+   - Explanation
+
+Important Note
+- This version uses an Odeh-style MVP implementation based on ARCV and crescent
+  width W, which is materially more correct than the previous version that used
+  elongation directly as W.

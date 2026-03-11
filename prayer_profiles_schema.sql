@@ -1,0 +1,41 @@
+CREATE TABLE IF NOT EXISTS prayer_profiles (
+    id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+    profile_code VARCHAR(64) NOT NULL,
+    profile_name_ar VARCHAR(255) NOT NULL,
+    profile_name_en VARCHAR(255) NOT NULL,
+    country_code VARCHAR(8) NOT NULL,
+    authority_name VARCHAR(255) NULL,
+    source_type VARCHAR(64) NOT NULL DEFAULT 'official_working',
+    source_reference VARCHAR(512) NULL,
+    verification_status VARCHAR(32) NOT NULL DEFAULT 'pending',
+    notes TEXT NULL,
+    is_active TINYINT(1) NOT NULL DEFAULT 1,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    UNIQUE KEY uq_prayer_profile_code (profile_code)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS prayer_profile_rules (
+    id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+    profile_id BIGINT UNSIGNED NOT NULL,
+    fajr_angle_deg DECIMAL(6,3) NULL,
+    isha_angle_deg DECIMAL(6,3) NULL,
+    sunrise_altitude_deg DECIMAL(6,3) NOT NULL DEFAULT -0.833,
+    sunset_altitude_deg DECIMAL(6,3) NOT NULL DEFAULT -0.833,
+    asr_method VARCHAR(32) NOT NULL DEFAULT 'SHAFII',
+    imsak_offset_minutes INT NULL,
+    duha_offset_minutes INT NULL,
+    zawal_offset_minutes INT NULL,
+    midnight_method VARCHAR(64) NOT NULL DEFAULT 'SUNSET_TO_FAJR',
+    qiyam_method VARCHAR(64) NOT NULL DEFAULT 'LAST_THIRD',
+    karaha_after_sunrise_minutes INT NULL,
+    karaha_before_zawal_minutes INT NULL,
+    karaha_after_asr_to_maghrib TINYINT(1) NOT NULL DEFAULT 1,
+    is_active TINYINT(1) NOT NULL DEFAULT 1,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    UNIQUE KEY uq_prayer_profile_rules_profile (profile_id),
+    CONSTRAINT fk_prayer_profile_rules_profile FOREIGN KEY (profile_id) REFERENCES prayer_profiles(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

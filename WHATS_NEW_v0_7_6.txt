@@ -1,0 +1,7 @@
+
+Version 0.7.6
+
+Added scientific foundation modules:
+- sky_brightness.py
+- contrast.py
+- schaefer.py

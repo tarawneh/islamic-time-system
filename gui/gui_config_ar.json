@@ -1,0 +1,52 @@
+{
+  "countries": [
+    {
+      "code": "JO",
+      "name_ar": "الأردن",
+      "name_en": "Jordan",
+      "default_profile": "JO_OFFICIAL",
+      "cities": [
+        {
+          "name_ar": "عمّان",
+          "name_en": "Amman",
+          "latitude": 31.9539,
+          "longitude": 35.9106,
+          "elevation": 757,
+          "timezone": "Asia/Amman"
+        },
+        {
+          "name_ar": "إربد",
+          "name_en": "Irbid",
+          "latitude": 32.5556,
+          "longitude": 35.85,
+          "elevation": 620,
+          "timezone": "Asia/Amman"
+        },
+        {
+          "name_ar": "الزرقاء",
+          "name_en": "Zarqa",
+          "latitude": 32.0728,
+          "longitude": 36.088,
+          "elevation": 619,
+          "timezone": "Asia/Amman"
+        },
+        {
+          "name_ar": "الكرك",
+          "name_en": "Karak",
+          "latitude": 31.1854,
+          "longitude": 35.7048,
+          "elevation": 930,
+          "timezone": "Asia/Amman"
+        },
+        {
+          "name_ar": "العقبة",
+          "name_en": "Aqaba",
+          "latitude": 29.5321,
+          "longitude": 35.0063,
+          "elevation": 6,
+          "timezone": "Asia/Amman"
+        }
+      ]
+    }
+  ]
+}

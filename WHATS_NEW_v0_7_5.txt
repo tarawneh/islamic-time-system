@@ -1,0 +1,9 @@
+WHAT'S NEW IN VERSION 0.7.5
+===========================
+
+1. Scientific reference frames are now documented explicitly.
+2. Sunset and moonset calculations now use explicit event altitude conventions.
+3. The astronomy engine now exposes solar altitude at sunset, ARCV, and crescent width.
+4. MoonData stores additional scientific trace fields.
+5. Odeh now prefers direct ARCV and width inputs from the astronomy engine.
+6. File comments were expanded to make the edited modules easier to audit and maintain.
